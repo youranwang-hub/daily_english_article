@@ -10,6 +10,25 @@ const ai = provider === 'deepseek'
   ? { key: process.env.DEEPSEEK_API_KEY, endpoint: 'https://api.deepseek.com/responses', model: process.env.AI_MODEL || 'deepseek-v4-flash' }
   : { key: process.env.OPENAI_API_KEY, endpoint: 'https://api.openai.com/v1/responses', model: process.env.AI_MODEL || 'gpt-5-mini' };
 
+async function fetchWithRetry(url, init, attempts = 4) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetch(url, init);
+      if (response.ok || (response.status < 500 && response.status !== 429)) return response;
+      lastError = new Error(`HTTP ${response.status}: ${await response.text()}`);
+    } catch (error) {
+      lastError = error;
+    }
+    if (attempt < attempts) {
+      const delay = 1500 * 2 ** (attempt - 1);
+      console.warn(`${provider} request failed (attempt ${attempt}/${attempts}); retrying in ${delay / 1000}s.`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+  throw new Error(`${provider} request failed after ${attempts} attempts: ${lastError?.message || 'unknown error'}`);
+}
+
 const schema = {
   name: 'cet6_daily_article', strict: true,
   schema: { type: 'object', additionalProperties: false, required: ['title','deck','topic','article','vocabulary','sentences','questions','sources'], properties: {
@@ -22,7 +41,7 @@ const schema = {
   }}
 };
 const prompt = `Create one ORIGINAL CET-6 English reading practice article for Chinese learners. Date: ${new Date().toISOString().slice(0,10)}. Choose a current but enduring topic from science, society, environment, education, economics or culture. Do not reproduce any source. Write 500-700 English words in 5-6 paragraphs, natural quality journalism style, CEFR B2/C1. Include 8-12 genuinely useful CET-6 words. Select 2-3 exact long sentences from your article. All explanations, translations and question explanations must be concise Chinese. Write four different multiple-choice reading questions. Cite 1-2 stable, public, authoritative reference URLs only.`;
-const response = await fetch(ai.endpoint, { method:'POST', headers:{'Authorization':`Bearer ${ai.key}`,'Content-Type':'application/json'}, body:JSON.stringify({model:ai.model,input:prompt,text:{format:{type:'json_schema',...schema}}}) });
+const response = await fetchWithRetry(ai.endpoint, { method:'POST', headers:{'Authorization':`Bearer ${ai.key}`,'Content-Type':'application/json'}, body:JSON.stringify({model:ai.model,input:prompt,text:{format:{type:'json_schema',...schema}}}) });
 if (!response.ok) throw new Error(`${provider} request failed: ${response.status} ${await response.text()}`);
 const output = await response.json();
 const generated = JSON.parse(output.output_text);
