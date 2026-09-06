@@ -44,7 +44,15 @@ const prompt = `Create one ORIGINAL CET-6 English reading practice article for C
 const response = await fetchWithRetry(ai.endpoint, { method:'POST', headers:{'Authorization':`Bearer ${ai.key}`,'Content-Type':'application/json'}, body:JSON.stringify({model:ai.model,input:prompt,text:{format:{type:'json_schema',...schema}}}) });
 if (!response.ok) throw new Error(`${provider} request failed: ${response.status} ${await response.text()}`);
 const output = await response.json();
-const generated = JSON.parse(output.output_text);
+const outputParts = output.output?.flatMap(item => Array.isArray(item.content) ? item.content : []) || [];
+const outputText = output.output_text
+  ?? outputParts.find(part => typeof part.text === 'string')?.text
+  ?? output.choices?.[0]?.message?.content;
+if (typeof outputText !== 'string' || !outputText.trim()) {
+  const keys = Object.keys(output).join(', ') || 'none';
+  throw new Error(`${provider} returned no readable text output (response fields: ${keys}).`);
+}
+const generated = JSON.parse(outputText);
 const date = new Date().toISOString().slice(0,10);
 const entry = { id:date, date, level:`CET-6 · 约 ${generated.article.join(' ').trim().split(/\s+/).length} 词`, minutes:15, ...generated };
 const file = new URL('../content/articles.json', import.meta.url);
