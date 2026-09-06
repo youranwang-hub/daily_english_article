@@ -1,0 +1,42 @@
+[
+  {
+    "id": "2026-09-06",
+    "date": "2026-09-06",
+    "title": "Why Cities Are Rethinking the Quiet Hour",
+    "deck": "A CET-6 practice article about urban sound, public health and better street design.",
+    "level": "CET-6 · 约 501 词",
+    "minutes": 12,
+    "topic": "Society",
+    "article": [
+      "For decades, city planners treated noise as an unavoidable side effect of economic activity. Traffic moved people and goods; construction made room for homes and offices; shops and restaurants gave streets a sense of life. Yet a growing body of research suggests that constant sound is more than a minor annoyance. It can interrupt sleep, reduce concentration and place a hidden burden on public health.",
+      "This finding has led some cities to experiment with a quiet hour: a period, often early in the morning or late at night, when delivery vehicles, building work and amplified entertainment are restricted. The policy does not aim to make urban life silent. Instead, it asks which sounds are necessary, who benefits from them, and who has to bear their cost.",
+      "Critics worry that such rules could damage small businesses. A café may depend on an early delivery, while a musician may have few places to perform. Supporters answer that a carefully designed policy can allow exceptions without abandoning the wider goal. In several pilot programmes, officials have worked with residents and businesses to map noisy locations and test quieter routes for trucks.",
+      "The most promising results have come from measures that look ordinary rather than dramatic. Smoother road surfaces, better insulation and predictable delivery schedules can lower noise without stopping activity. These changes also reveal an important principle: an environment becomes healthier when people can influence the conditions they experience every day.",
+      "For students, the discussion offers a useful reminder. Silence is not simply the absence of sound; it is a resource that makes attention possible. Protecting that resource may require public rules, but it also depends on private choices, from lowering a phone's volume to noticing when our convenience creates difficulty for someone else. The issue is especially visible near schools, hospitals and apartment buildings, where people with very different schedules share the same space. A night-shift worker may need sleep while a family is beginning breakfast; a student preparing for an exam may be distracted by a repair that cannot easily be postponed. These conflicts do not always have a perfect solution, but they become easier to manage when people can discuss them before frustration grows. Technology can help as well. Some cities use sensors to measure sound levels, allowing officials to respond to repeated problems instead of relying only on occasional complaints. However, numbers alone cannot decide what a community should value. They need to be considered alongside local knowledge and the experience of residents. A useful policy also explains its purpose in plain language, publishes a way to report problems, and reviews the results after a trial period. When authorities share this information, residents can see whether a rule has reduced disturbance and businesses can suggest practical improvements. It can also encourage neighbourhood groups to identify quiet places that deserve protection, such as public libraries and small parks. In this sense, the quiet hour is less a ban than an invitation to design a city with greater care, patience and fairness."
+    ],
+    "vocabulary": [
+      {"word":"unavoidable","pos":"adj.","meaning":"不可避免的","collocation":"an unavoidable consequence","example":"Some pressure is unavoidable before an exam."},
+      {"word":"annoyance","pos":"n.","meaning":"烦恼；令人烦恼的事","collocation":"a minor annoyance","example":"The delay was an annoyance, but it did not ruin the trip."},
+      {"word":"restrict","pos":"v.","meaning":"限制；约束","collocation":"restrict access to","example":"The library restricts access to rare books."},
+      {"word":"abandon","pos":"v.","meaning":"放弃；抛弃","collocation":"abandon a goal","example":"She refused to abandon her plan."},
+      {"word":"insulation","pos":"n.","meaning":"隔音（层）；绝缘材料","collocation":"sound insulation","example":"Good insulation keeps the room warm and quiet."},
+      {"word":"predictable","pos":"adj.","meaning":"可预测的；有规律的","collocation":"a predictable pattern","example":"The weather is less predictable in spring."},
+      {"word":"influence","pos":"v./n.","meaning":"影响；影响力","collocation":"influence a decision","example":"Friends can influence the way we learn."},
+      {"word":"convenience","pos":"n.","meaning":"方便；便利","collocation":"for convenience","example":"For convenience, the notes are available online."}
+    ],
+    "sentences": [
+      {"sentence":"Yet a growing body of research suggests that constant sound is more than a minor annoyance.","backbone":"a growing body of research suggests ...","structure":"that 引导宾语从句；more than 表示“不仅仅是”。","translation":"然而，越来越多的研究表明，持续不断的噪声不仅仅是小小的烦扰。"},
+      {"sentence":"The policy does not aim to make urban life silent; instead, it asks which sounds are necessary, who benefits from them, and who has to bear their cost.","backbone":"The policy asks three questions.","structure":"三个并列的 wh- 从句作 asks 的宾语；instead 表示转折后的真正目的。","translation":"该政策的目的并非让城市生活归于寂静；相反，它追问哪些声音是必要的、谁从中受益，以及谁不得不承担其代价。"},
+      {"sentence":"These changes also reveal an important principle: an environment becomes healthier when people can influence the conditions they experience every day.","backbone":"These changes reveal an important principle.","structure":"冒号后解释 principle；when 引导时间/条件状语从句；they experience every day 修饰 conditions。","translation":"这些改变还揭示了一项重要原则：当人们能影响自己每天所处的环境条件时，环境会变得更健康。"}
+    ],
+    "questions": [
+      {"question":"What is the main purpose of a quiet hour?","options":["To stop all city activity","To reduce unnecessary noise while keeping city life workable","To make public transport cheaper","To replace construction work"],"answer":1,"explanation":"第二段说明政策不是让城市完全安静，而是平衡必要声音与其成本。"},
+      {"question":"What does 'abandoning the wider goal' most nearly mean?","options":["changing the delivery route","giving up the broader objective","supporting small businesses","making more exceptions"],"answer":1,"explanation":"abandon 表示放弃，wider goal 指更广泛的降噪目标。"},
+      {"question":"Which measure is presented as effective?","options":["Closing all cafés","Using smoother road surfaces","Banning musicians","Moving every resident"],"answer":1,"explanation":"第四段明确列出 smoother road surfaces。"},
+      {"question":"What is the author's attitude toward quiet?","options":["It has no public value","It is a resource that supports attention","It is only useful at night","It harms economic activity"],"answer":1,"explanation":"末段将安静称为使注意力成为可能的资源。"}
+    ],
+    "sources": [
+      {"label":"World Health Organization — Environmental noise guidelines","url":"https://www.who.int/europe/publications/i/item/9789289053563"}
+    ]
+  }
+]

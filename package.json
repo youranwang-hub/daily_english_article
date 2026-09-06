@@ -1,0 +1,11 @@
+{
+  "name": "cet6-daily-reader",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate-daily.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
